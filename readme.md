@@ -5,7 +5,7 @@ This project compares the speed of different Node.JS csv parsers.
 ## To start
 
 ```
-$ git checkout https://github.com/Keyang/csvbench
+$ git clone https://github.com/Keyang/csvbench
 $ npm install .
 $ node ./index.js
 ```
