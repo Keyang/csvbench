@@ -1,6 +1,6 @@
 // var csv=require('fast-csv')
 // var csv=require('csv')
-var csvtojson = require('../csv2json/')
+var csvtojson = require('csvtojson')
 var csv = require('csv')
 var fastCsv = require('fast-csv')
 var csvFile = '1.csv'
