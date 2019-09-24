@@ -22,14 +22,15 @@ All parsers will simply do following
 
 # Result
 
-Here is some result running on a 2013 Macbook Pro: 
+Here is some result running on a 2019 Macbook Pro: 
 
 ```
 $ node ./index.js
-fast-csv: 5248.767ms
-csv: 3798.266ms
-csvtojson: 948.493ms
+fast-csv: 1594.408ms
+csv: 1890.357ms
+csvtojson: 437.571ms
+csv-parser: 726.146ms
 $ node --version
-v6.9.1
+v12.4.0
 ```
 

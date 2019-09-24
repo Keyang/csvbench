@@ -9,8 +9,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "csvtojson": "^1.1.0",
     "csv": "^1.1.0",
+    "csv-parser": "^2.3.1",
+    "csvtojson": "^1.1.0",
     "fast-csv": "^2.3.0"
   }
 }
