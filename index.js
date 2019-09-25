@@ -4,6 +4,8 @@ var csvtojson = require('csvtojson')
 var csv = require('csv')
 var fastCsv = require('fast-csv')
 var csvParser = require('csv-parser')
+var Papa = require('papaparse')
+
 var csvFile = '1.csv'
 var outputFile = "output.txt";
 console.time("fast-csv")
@@ -18,6 +20,10 @@ testFastCsv(function () {
       console.time("csv-parser")
       testCsvParser(function () {
         console.timeEnd("csv-parser")
+        console.time("papaparse")
+        testPapaParse(function () {
+          console.timeEnd("papaparse")
+        })
       })
     })
   })
@@ -70,6 +76,20 @@ function testCsvParser(cb) {
   var ws = require('fs').createWriteStream(fileName)
   var rs = require('fs').createReadStream(csvFile)
   var stream = csvParser();
+  rs.pipe(stream)
+  .on("data",function(d){
+    ws.write(d[0] + "\n")
+  })
+  .on("end",function(){
+    cb();
+  })
+}
+
+function testPapaParse(cb) {
+  var fileName = "papaParse-" + outputFile;
+  var ws = require('fs').createWriteStream(fileName)
+  var rs = require('fs').createReadStream(csvFile)
+  var stream = Papa.parse(Papa.NODE_STREAM_INPUT)
   rs.pipe(stream)
   .on("data",function(d){
     ws.write(d[0] + "\n")

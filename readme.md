@@ -26,10 +26,11 @@ Here is some result running on a 2019 Macbook Pro:
 
 ```
 $ node ./index.js
-csv: 1890.357ms
-fast-csv: 1594.408ms
-csv-parser: 726.146ms
-csvtojson: 437.571ms
+csv: 1844.045ms
+fast-csv: 1681.046ms
+csv-parser: 722.762ms
+csvtojson: 436.225ms
+papaparse: 434.335ms
 $ node --version
 v12.4.0
 ```
