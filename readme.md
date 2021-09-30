@@ -12,11 +12,15 @@ $ node ./index.js
 
 ## Procedure
 
-All parsers will simply do following
+All parsers (except `lil-csv`) will simply do following
 
 1. stream in 1.csv and start to parse
 2. get content from 1st column of each row and write to a file
 
+The `lil-csv` would
+
+1. read the whole 1.csv without streaming
+2. get content from 1st column of each row and write to a file
 
 `1.csv` contains 300K lines
 
@@ -26,11 +30,12 @@ Here is some result running on a 2019 Macbook Pro:
 
 ```
 $ node ./index.js
-csv: 1844.045ms
-fast-csv: 1681.046ms
-csv-parser: 722.762ms
-csvtojson: 436.225ms
-papaparse: 434.335ms
+fast-csv: 1438.705ms
+csv: 2346.760ms
+csvtojson: 435.524ms
+csv-parser: 878.652ms
+papaparse: 430.366ms
+lil-csv: 1135.411ms
 $ node --version
 v12.4.0
 ```

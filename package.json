@@ -13,6 +13,7 @@
     "csv-parser": "^2.3.1",
     "csvtojson": "^1.1.0",
     "fast-csv": "^2.3.0",
+    "lil-csv": "^1.4.1",
     "papaparse": "^5.1.0"
   }
 }
