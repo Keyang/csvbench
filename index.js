@@ -1,10 +1,9 @@
-// var csv=require('fast-csv')
-// var csv=require('csv')
 var csvtojson = require('csvtojson')
 var csv = require('csv')
 var fastCsv = require('fast-csv')
 var csvParser = require('csv-parser')
 var Papa = require('papaparse')
+var lilCsv = require('lil-csv')
 
 var csvFile = '1.csv'
 var outputFile = "output.txt";
@@ -23,6 +22,10 @@ testFastCsv(function () {
         console.time("papaparse")
         testPapaParse(function () {
           console.timeEnd("papaparse")
+          console.time("lil-csv")
+          testLilCsv(function () {
+            console.timeEnd("lil-csv")
+          })
         })
       })
     })
@@ -97,4 +100,12 @@ function testPapaParse(cb) {
   .on("end",function(){
     cb();
   })
+}
+
+function testLilCsv(cb) {
+  var fileName = 'lilCsv-' + outputFile;
+  var fileContents = require('fs').readFileSync(csvFile, "utf-8")
+  var data = lilCsv.parse(fileContents, { header: false })
+  require('fs').writeFileSync(fileName, JSON.stringify(data.reduce((acc, row) => acc + "\n" + row[0], "")))
+  cb()
 }
